@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Kristine 💖</title>
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+  font-family: "Georgia", serif;
+  text-align: center;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+h1 {
+  margin-top: 20px;
+  color: #b30059;
+}
+
+p {
+  color: #800040;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+button {
+  background: #ff4d88;
+  color: white;
+  padding: 12px 22px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin: 8px;
+}
+
+button:hover {
+  background: #ff1a66;
+}
+
+.card {
+  display: none;
+  background: rgba(255,255,255,0.98);
+  max-width: 420px;
+  margin: 15px auto;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.flowers {
+  font-size: 50px;
+}
+
+.kitty {
+  font-size: 70px;
+}
+
+/* floating hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  to { transform: translateY(-120vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>💖 Hi Kristine 💖</h1>
+<p>I made this just for you 🐱🎀</p>
+
+<button id="openBtn">Open 💌</button>
+
+<div id="letter" class="card">
+  <div class="kitty">🎀🐱🎀</div>
+  <div class="flowers">💐🌸🌷🌹</div>
+
+  <p><strong>Dear Kristine,</strong></p>
+
+  <p>
+    This isn’t just a Valentine page.
+    It’s a collection of little thoughts I have
+    whenever you cross my mind.
+  </p>
+
+  <p>
+    Tap the buttons below —
+    each one is a tiny message just for you 💕
+  </p>
+
+  <button onclick="showMsg(0)">🐱 Click me</button>
+  <button onclick="showMsg(1)">🎀 This one</button>
+  <button onclick="showMsg(2)">💖 And this</button>
+  <button onclick="showMsg(3)">🌸 Another</button>
+  <button onclick="showMsg(4)">💐 Again</button>
+  <button onclick="showMsg(5)">😳 Last one</button>
+
+  <br>
+  <button onclick="goNext()">Continue 💘</button>
+</div>
+
+<div id="message" class="card">
+  <div class="kitty">🐱💖</div>
+  <p id="msgText"></p>
+  <button onclick="back()">Back 💕</button>
+</div>
+
+<div id="question" class="card">
+  <p><strong>Kristine 💘</strong></p>
+  <p>Will you be my Valentine?</p>
+  <button onclick="yes()">YES 💖</button>
+</div>
+
+<div id="yesMessage" class="card">
+  <div class="kitty">🎀🐱💐</div>
+  <p>
+    Hi my love, Kristine 💗
+I just want you to know how much you truly mean to me. Sometimes words don’t feel enough to explain it, but I’ll try anyway. From the moment you came into my life, everything slowly started to feel lighter and more meaningful. You didn’t just become my girlfriend—you became my safe place, my comfort, and my favorite person to talk to at the end of the day.
+
+I love the way you make me feel calm even when my mind is noisy. I love how your presence alone can turn an ordinary day into something special. When I think about my future, you’re always there, smiling, walking beside me, reminding me why I keep going and why I should never give up.
+
+Thank you for being patient with me, for understanding me even when I struggle to explain myself, and for loving me in ways I never knew I needed. You inspire me to be better—not because you ask me to, but because I want to be someone who deserves you. Every laugh we share, every small moment, and even the challenges we face together only make me love you more.
+
+I hope you never forget how beautiful you are, not just on the outside but especially in your heart. You are rare, Kristine, and I’m so grateful that I get to call you mine. No matter what happens, I want you to know that I’m here for you—through good days, bad days, and everything in between.
+
+I love you more than I can explain, and I’ll keep choosing you every single day. Always. 💕
+  </p>
+</div>
+
+<script>
+const letter = document.getElementById("letter");
+const message = document.getElementById("message");
+const msgText = document.getElementById("msgText");
+const question = document.getElementById("question");
+const yesMessage = document.getElementById("yesMessage");
+
+const messages = [
+  "You’re effortlessly cute, and I hope you know that 🐱💖",
+  "Thinking of you already makes my day better 🎀",
+  "If comfort had a name, it would sound like yours 💕",
+  "You have a smile that stays longer than the moment 🌸",
+  "This little page exists because you matter 💐",
+  "Okay… this one’s honest — I really like you 😳"
+];
+
+document.getElementById("openBtn").onclick = () => {
+  document.getElementById("openBtn").style.display = "none";
+  letter.style.display = "block";
+};
+
+function showMsg(i) {
+  letter.style.display = "none";
+  message.style.display = "block";
+  msgText.innerText = messages[i];
+}
+
+function back() {
+  message.style.display = "none";
+  letter.style.display = "block";
+}
+
+function goNext() {
+  letter.style.display = "none";
+  question.style.display = "block";
+}
+
+function yes() {
+  question.style.display = "none";
+  yesMessage.style.display = "block";
+}
+
+// hearts
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤️";
+  h.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 6000);
+}, 500);
+</script>
+
+</body>
+</html>
